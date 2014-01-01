@@ -183,7 +183,7 @@ sim_core_config.h ${OBJ}/cores.deps: $(cores) Makefile
 sim_core_decl.h: sim_core_config.h $(cores) Makefile
 	@echo CONF $@
 	@decl=""; array=""; \
-	for core in $$(grep -r avr_kind_t cores/|awk -F '[ :]' '{print $$1 "=" $$3;}') ; do \
+	for core in $$(grep -r avr_kind_t cores|awk -F '[ :]' '{print $$1 "=" $$3;}') ; do \
 		file=$${core/=*}; global=$${core/*=}; \
 		upper=$${file/cores\/sim_}; upper=$${upper/.c}; \
 		upper=$$(echo $$upper|tr '[a-z]' '[A-Z]'); \
